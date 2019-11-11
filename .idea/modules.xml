@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" group="lympha/core" />
+      <module fileurl="file://$PROJECT_DIR$/lympha.iml" filepath="$PROJECT_DIR$/lympha.iml" group="lympha" />
+      <module fileurl="file://$PROJECT_DIR$/lympha-test-app/lympha-test-app.iml" filepath="$PROJECT_DIR$/lympha-test-app/lympha-test-app.iml" group="lympha/lympha-test-app" />
+    </modules>
+  </component>
+</project>

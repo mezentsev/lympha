@@ -1,0 +1,2 @@
+include ':core', ':lympha-test-app'
+rootProject.name='lympha'
