@@ -1,12 +1,21 @@
 # Lympha
 Lympha is a library for logging by annotation-triggered method call.
 
-## Compatibility
-* **Minimum Android SDK**: requires a minimum API level of 16.
-* **Compile Android SDK**: requires you to compile against API 29.
+## How to use
+For example:
+```kotlin
+@Lympha
+infix fun <T> Collection<T>.areSameContentWith(collection: Collection<T>?)
+            = collection?.let { this.size == it.size && this.containsAll(it) }
+```
 
-## Built With
-* [AspectJ](https://github.com/Archinamon/android-gradle-aspectj) - AspectJ Gradle Plugin
+Output wiil be:
+```
+[Thread(main)] Obtained event message: '⇢ areSameContentWith(interface java.util.Collection $this$areSameContentWith = "[100]", interface java.util.Collection collection = "[200]")' and took '0 ms'
+[Thread(main)] Obtained event message: '⇠ areSameContentWith = Boolean "false"' and took '0 ms'
+```
+
+Example application can be found [here](https://github.com/mezentsev/lympha/tree/master/lympha-test-app).
 
 ## Getting started
 
@@ -85,6 +94,12 @@ Event has simple structure:
 - ```timestamp: Long```
 - ```threadName: String```
 
+## Compatibility
+* **Minimum Android SDK**: requires a minimum API level of 16.
+* **Compile Android SDK**: requires you to compile against API 29.
+
+## Built With
+* [AspectJ](https://github.com/Archinamon/android-gradle-aspectj) - AspectJ Gradle Plugin
 
 ## Authors
 Vadim Mezentsev
