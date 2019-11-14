@@ -3,13 +3,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'com.archinamon.aspectj'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion "29.0.0"
+    compileSdkVersion 29
 
     defaultConfig {
         applicationId "pro.mezentsev.lympha"
         minSdkVersion 16
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
 
