@@ -1,16 +1,16 @@
 package pro.mezentsev.lympha.app
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.HandlerThread
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import obtainNumber
+import obtainThreadNumber
 import pro.mezentsev.lympha.Event
 import pro.mezentsev.lympha.EventListener
-import pro.mezentsev.lympha.annotation.Lympha
+import pro.mezentsev.lympha.Lympha
+import pro.mezentsev.lympha.annotation.LymphaProfiler
 import kotlin.random.Random
-import pro.mezentsev.lympha.Lympha as LymphaCore
 
 class LymphaActivity : AppCompatActivity() {
 
@@ -34,36 +34,21 @@ class LymphaActivity : AppCompatActivity() {
             obtainThreadNumber(Random.nextInt(100))
         }
 
+    }
+
+    @LymphaProfiler
+    fun obtain() {
         obtainNumber(5)
         obtainThreadNumber(11)
     }
 
-    @Lympha
-    private fun obtainNumber(number: Int): Int {
-        Thread.sleep(50)
-        return number * number
-    }
-
-    @Lympha
-    private fun obtainThreadNumber(number: Int) {
-        val backgroundThread = HandlerThread("LymphaThread")
-        backgroundThread.start()
-
-        with(Handler(backgroundThread.looper)) {
-            post {
-                Thread.sleep(1000)
-                obtainNumber(number)
-                backgroundThread.looper.quit()
-            }
-        }
-    }
-
     override fun onResume() {
         super.onResume()
-        LymphaCore.addEventListener(eventListener)
+        Lympha.addEventListener(eventListener)
+        obtain()
     }
     override fun onPause() {
         super.onPause()
-        LymphaCore.removeEventListener(eventListener)
+        Lympha.removeEventListener(eventListener)
     }
 }

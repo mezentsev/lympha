@@ -1,2 +1,7 @@
-include ':core', ':lympha-test-app'
+include ':lympha-core'
+include ':lympha-profiler'
+include ':lympha-profiler-noop'
+include ':lympha-test-app'
+include ':lympha-test-app-module'
+
 rootProject.name='lympha'

@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'com.archinamon.aspectj'
 
@@ -6,25 +6,22 @@ android {
     compileSdkVersion 29
 
     defaultConfig {
-        applicationId "pro.mezentsev.lympha"
         minSdkVersion 16
         targetSdkVersion 29
+
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
     buildTypes {
-        release {
+        debug {
+            debuggable true
             minifyEnabled false
+        }
+        release {
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
@@ -37,7 +34,9 @@ aspectj {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
     implementation "androidx.appcompat:appcompat:$appcompatVersion"
-    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
 
-    implementation project(':lympha-test-app-module')
+    debugApi project(':lympha-profiler')
+    releaseApi project(':lympha-profiler-noop')
+
+    testImplementation "junit:junit:$junitVersion"
 }

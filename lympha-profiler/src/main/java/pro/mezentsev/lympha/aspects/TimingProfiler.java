@@ -1,7 +1,5 @@
 package pro.mezentsev.lympha.aspects;
 
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -20,9 +18,9 @@ import pro.mezentsev.lympha.Event;
 import pro.mezentsev.lympha.internal.LymphaInformer;
 
 @Aspect
-public class Profiler {
+public class TimingProfiler {
 
-    @Around("@annotation(pro.mezentsev.lympha.annotation.Lympha) && execution(@pro.mezentsev.lympha.annotation.Lympha * *.*(..))")
+    @Around("@annotation(pro.mezentsev.lympha.annotation.LymphaProfiler) && execution(@pro.mezentsev.lympha.annotation.LymphaProfiler * *.*(..))")
     @Nullable
     public Object getRealNumber(ProceedingJoinPoint joinPoint) throws Throwable {
         Object returnValue = null;
