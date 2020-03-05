@@ -1,7 +1,7 @@
-package pro.mezentsev.lympha
+package pro.mezentsev.lympha.events
 
 import androidx.annotation.UiThread
-import kotlin.reflect.KClass
+import pro.mezentsev.lympha.events.Event
 
 interface EventListener {
     @UiThread

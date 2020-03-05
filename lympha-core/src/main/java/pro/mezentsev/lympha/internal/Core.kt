@@ -3,12 +3,20 @@ package pro.mezentsev.lympha.internal
 import android.os.Handler
 import android.os.Looper
 import androidx.annotation.AnyThread
-import pro.mezentsev.lympha.Event
+import pro.mezentsev.lympha.events.Event
+import pro.mezentsev.lympha.events.EventListener
 import pro.mezentsev.lympha.Lympha
+import java.util.concurrent.CopyOnWriteArraySet
 
-internal class LymphaInternal(builder: Builder): Lympha(builder) {
+internal class Core(private val builder: Lympha.Builder) {
+    private val logger = builder.logger
+    private val eventListeners = CopyOnWriteArraySet<EventListener>()
+
     private val handler = Handler(Looper.getMainLooper())
 
+    /**
+     * Informs on UIThread.
+     */
     @AnyThread
     internal fun inform(event: Event) {
         val isNotUiThread = Looper.myLooper() != Looper.getMainLooper()
@@ -27,5 +35,13 @@ internal class LymphaInternal(builder: Builder): Lympha(builder) {
                 informAction()
             }
         }
+    }
+
+    internal fun addEventListener(eventListener: EventListener): Boolean {
+        return eventListeners.add(eventListener)
+    }
+
+    internal fun removeEventListener(eventListener: EventListener): Boolean {
+        return eventListeners.remove(eventListener)
     }
 }

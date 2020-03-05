@@ -1,7 +1,6 @@
-package pro.mezentsev.lympha
+package pro.mezentsev.lympha.logger
 
 import android.util.Log
-import java.util.logging.Logger
 
 private const val TAG = "LYMPHA"
 
@@ -11,7 +10,7 @@ interface Logger {
     fun w(throwable: Throwable, message: String?)
     fun e(throwable: Throwable, message: String?)
 
-    open class Simple : pro.mezentsev.lympha.Logger {
+    open class Simple : Logger {
         override fun d(message: String?) {
             Log.d(TAG, message)
         }
@@ -27,6 +26,5 @@ interface Logger {
         override fun e(throwable: Throwable, message: String?) {
             Log.e(TAG, message, throwable)
         }
-
     }
 }

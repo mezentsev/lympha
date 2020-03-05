@@ -1,39 +1,29 @@
 package pro.mezentsev.lympha
 
-import pro.mezentsev.lympha.internal.LymphaInternal
+import pro.mezentsev.lympha.events.EventListener
+import pro.mezentsev.lympha.internal.Core
+import pro.mezentsev.lympha.logger.Logger
 
-open class Lympha(private val builder: Builder) {
-    protected val logger = builder.logger
+object Lympha {
+    lateinit var builder: Builder
 
-    protected val eventListeners = mutableListOf<EventListener>()
-
-    companion object {
-        @Volatile
-        private var instance: Lympha? = null
-
-        internal fun getInstance() = instance
-            ?: throw IllegalStateException("Not init yet")
-
-        fun init(builder: Builder = Builder()) {
-            if (instance != null) {
-                throw IllegalStateException("Already init")
-            }
-
-            synchronized(this) {
-                if (instance == null) {
-                    instance = LymphaInternal(builder)
-                } else {
-                    throw IllegalStateException("Already init")
-                }
-            }
-        }
-
-        fun addEventListener(eventListener: EventListener): Boolean =
-            getInstance().eventListeners.add(eventListener)
-
-        fun removeEventListener(eventListener: EventListener): Boolean =
-            getInstance().eventListeners.remove(eventListener)
+    internal val instance by lazy {
+        Core(builder)
     }
 
-    class Builder(val logger: Logger = Logger.Simple())
+    @JvmStatic
+    @JvmOverloads
+    fun init(builder: Builder = Builder()) {
+        this.builder = builder
+    }
+
+    @JvmStatic
+    fun addEventListener(eventListener: EventListener): Boolean =
+        instance.addEventListener(eventListener)
+
+    @JvmStatic
+    fun removeEventListener(eventListener: EventListener): Boolean =
+        instance.removeEventListener(eventListener)
+
+    class Builder @JvmOverloads constructor(val logger: Logger = Logger.Simple())
 }

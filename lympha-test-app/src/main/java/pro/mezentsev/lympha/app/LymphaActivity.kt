@@ -6,8 +6,8 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import obtainNumber
 import obtainThreadNumber
-import pro.mezentsev.lympha.Event
-import pro.mezentsev.lympha.EventListener
+import pro.mezentsev.lympha.events.Event
+import pro.mezentsev.lympha.events.EventListener
 import pro.mezentsev.lympha.Lympha
 import pro.mezentsev.lympha.annotation.LymphaProfiler
 import kotlin.random.Random

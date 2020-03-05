@@ -14,8 +14,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.TimeUnit;
 
-import pro.mezentsev.lympha.Event;
-import pro.mezentsev.lympha.internal.LymphaInformer;
+import pro.mezentsev.lympha.events.Event;
+import pro.mezentsev.lympha.informer.Informer;
 
 @Aspect
 public class TimingProfiler {
@@ -63,7 +63,7 @@ public class TimingProfiler {
         }
         builder.append(')');
 
-        LymphaInformer.inform(new ProfilerEvent(builder.toString(), 0L));
+        Informer.inform(new ProfilerEvent(builder.toString(), 0L));
     }
 
     private static void processExitMethod(@NonNull JoinPoint joinPoint, long time, @Nullable Object returnValue, @Nullable Throwable t) {
@@ -83,7 +83,7 @@ public class TimingProfiler {
             builder.append("\"").append(returnValue).append("\"");
         }
 
-        LymphaInformer.inform(new ProfilerEvent(builder.toString(), time));
+        Informer.inform(new ProfilerEvent(builder.toString(), time));
     }
 
     private static class ProfilerEvent extends Event.Simple {

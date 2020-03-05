@@ -1,4 +1,4 @@
-package pro.mezentsev.lympha
+package pro.mezentsev.lympha.events
 
 abstract class Event {
     abstract val message: String
