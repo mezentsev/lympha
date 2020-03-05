@@ -1,6 +1,5 @@
-package pro.mezentsev.lympha.informer
+package pro.mezentsev.lympha.events
 
-import pro.mezentsev.lympha.events.Event
 import pro.mezentsev.lympha.Lympha
 
 object Informer {

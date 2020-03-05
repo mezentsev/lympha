@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.concurrent.TimeUnit;
 
 import pro.mezentsev.lympha.events.Event;
-import pro.mezentsev.lympha.informer.Informer;
+import pro.mezentsev.lympha.events.Informer;
 
 @Aspect
 public class TimingProfiler {
@@ -86,19 +86,9 @@ public class TimingProfiler {
         Informer.inform(new ProfilerEvent(builder.toString(), time));
     }
 
-    private static class ProfilerEvent extends Event.Simple {
-
-        private final long timeTaken;
-
-        ProfilerEvent(@NotNull String message,
-                      long timeTaken) {
-            super(message);
-            this.timeTaken = timeTaken;
-        }
-
-        @Override
-        public long getTimeTaken() {
-            return timeTaken;
+    private static class ProfilerEvent extends Event {
+        ProfilerEvent(@NotNull String message, long timeTaken) {
+            super(ProfilerEvent.class, message, timeTaken);
         }
     }
 }

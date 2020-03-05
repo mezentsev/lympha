@@ -1,10 +1,9 @@
 package pro.mezentsev.lympha.events
 
-abstract class Event {
-    abstract val message: String
-    open val timeTaken: Long = 0L
-    open val timestamp: Long = System.currentTimeMillis()
-    open val threadName = Thread.currentThread().name
-
-    open class Simple constructor(override val message: String) : Event()
-}
+open class Event @JvmOverloads constructor(
+    val channel: Class<*>,
+    val message: String,
+    val timeTaken: Long = 0L,
+    val timestamp: Long = System.currentTimeMillis(),
+    val threadName: String = Thread.currentThread().name
+)
