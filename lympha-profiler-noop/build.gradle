@@ -1,6 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'com.archinamon.aspectj'
 
 android {
     compileSdkVersion 29
@@ -26,10 +24,5 @@ android {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
-    implementation "androidx.appcompat:appcompat:$appcompatVersion"
-
-    testImplementation "junit:junit:$junitVersion"
-
     api project(':lympha-core')
 }

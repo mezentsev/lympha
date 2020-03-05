@@ -4,7 +4,7 @@ buildscript {
         gradlePluginVersion = '3.5.0'
         appcompatVersion = '1.1.0'
         junitVersion = '4.12'
-        aspectjVersion = '3.4.0'
+        aspectjVersion = '4.0.1'
 
         constraintLayoutVersion = '1.1.3'
     }
