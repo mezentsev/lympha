@@ -5,9 +5,13 @@ import pro.mezentsev.lympha.internal.Core
 import pro.mezentsev.lympha.logger.Logger
 
 object Lympha {
-    lateinit var builder: Builder
+    private lateinit var builder: Builder
 
     internal val instance by lazy {
+        if (!::builder.isInitialized) {
+            throw IllegalStateException("You must call init(...) fist")
+        }
+
         Core(builder)
     }
 
