@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'com.archinamon.aspectj'
 
 android {
     compileSdkVersion 29
@@ -25,18 +24,11 @@ android {
     }
 }
 
-aspectj {
-    includeAspectsFromJar 'lympha-profiler'
-    debugInfo = true
-    weaveInfo = true
-}
-
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
-    implementation "androidx.appcompat:appcompat:$appcompatVersion"
-
-    debugApi project(':lympha-profiler-aj')
-    releaseApi project(':lympha-profiler-noop')
 
     testImplementation "junit:junit:$junitVersion"
+
+    api project(":lympha-core")
+    api project(":lympha-profiler-annotation")
 }

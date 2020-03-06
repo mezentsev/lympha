@@ -32,7 +32,7 @@ aspectj {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
-    implementation "androidx.appcompat:appcompat:$appcompatVersion"
+    implementation "androidx.annotation:annotation:$annotationsVersion"
 
     testImplementation "junit:junit:$junitVersion"
 

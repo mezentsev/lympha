@@ -1,6 +1,7 @@
 include ':lympha-core'
 include ':lympha-profiler-annotation'
-include ':lympha-profiler'
+include ':lympha-profiler-aj'
+include ':lympha-profiler-apt'
 include ':lympha-profiler-noop'
 include ':lympha-test-app'
 include ':lympha-test-app-module'

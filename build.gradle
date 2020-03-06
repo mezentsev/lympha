@@ -3,6 +3,7 @@ buildscript {
         kotlinVersion = '1.3.70'
         gradlePluginVersion = '3.5.0'
         appcompatVersion = '1.1.0'
+        annotationsVersion = '1.1.0'
         junitVersion = '4.12'
         aspectjVersion = '4.0.1'
 
