@@ -25,4 +25,5 @@ android {
 
 dependencies {
     api project(':lympha-core')
+    api project(':lympha-profiler-annotation')
 }

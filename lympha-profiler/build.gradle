@@ -37,4 +37,5 @@ dependencies {
     testImplementation "junit:junit:$junitVersion"
 
     api project(":lympha-core")
+    api project(":lympha-profiler-annotation")
 }
