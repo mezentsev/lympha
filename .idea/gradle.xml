@@ -12,9 +12,9 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/lympha-core" />
+            <option value="$PROJECT_DIR$/lympha-processor" />
             <option value="$PROJECT_DIR$/lympha-profiler-aj" />
             <option value="$PROJECT_DIR$/lympha-profiler-annotation" />
-            <option value="$PROJECT_DIR$/lympha-profiler-apt" />
             <option value="$PROJECT_DIR$/lympha-profiler-noop" />
             <option value="$PROJECT_DIR$/lympha-test-app" />
             <option value="$PROJECT_DIR$/lympha-test-app-module" />

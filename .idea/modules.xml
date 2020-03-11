@@ -5,9 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/lympha.iml" filepath="$PROJECT_DIR$/lympha.iml" group="lympha" />
       <module fileurl="file://$PROJECT_DIR$/lympha-core/lympha-core.iml" filepath="$PROJECT_DIR$/lympha-core/lympha-core.iml" group="lympha/lympha-core" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/lympha-core/lympha-lympha-core.iml" filepath="$PROJECT_DIR$/.idea/modules/lympha-core/lympha-lympha-core.iml" group="lympha/lympha-core" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lympha-profiler-apt/lympha-processor.iml" filepath="$PROJECT_DIR$/.idea/modules/lympha-profiler-apt/lympha-processor.iml" group="lympha/lympha-processor" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/lympha-profiler/lympha-profiler-aj.iml" filepath="$PROJECT_DIR$/.idea/modules/lympha-profiler/lympha-profiler-aj.iml" group="lympha/lympha-profiler-aj" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/lympha-profiler-annotation/lympha-profiler-annotation.iml" filepath="$PROJECT_DIR$/.idea/modules/lympha-profiler-annotation/lympha-profiler-annotation.iml" group="lympha/lympha-profiler-annotation" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lympha-profiler-apt/lympha-profiler-apt.iml" filepath="$PROJECT_DIR$/.idea/modules/lympha-profiler-apt/lympha-profiler-apt.iml" group="lympha/lympha-profiler-apt" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/lympha-profiler-noop/lympha-profiler-noop.iml" filepath="$PROJECT_DIR$/.idea/modules/lympha-profiler-noop/lympha-profiler-noop.iml" group="lympha/lympha-profiler-noop" />
       <module fileurl="file://$PROJECT_DIR$/lympha-test-app/lympha-test-app.iml" filepath="$PROJECT_DIR$/lympha-test-app/lympha-test-app.iml" group="lympha/lympha-test-app" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/lympha-test-app-module/lympha-test-app-module.iml" filepath="$PROJECT_DIR$/.idea/modules/lympha-test-app-module/lympha-test-app-module.iml" group="lympha/lympha-test-app-module" />
