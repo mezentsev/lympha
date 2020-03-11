@@ -13,5 +13,5 @@ dependencies {
     implementation "com.squareup:kotlinpoet:$kotlinPoetVersion"
     testImplementation "junit:junit:$junitVersion"
 
-    implementation project(":lympha-profiler-annotation")
+    implementation project(":lympha-annotation")
 }

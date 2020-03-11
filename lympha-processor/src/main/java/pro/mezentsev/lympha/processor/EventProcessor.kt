@@ -7,27 +7,30 @@ import com.squareup.kotlinpoet.FunSpec
 import com.squareup.kotlinpoet.TypeSpec
 import net.ltgt.gradle.incap.IncrementalAnnotationProcessor
 import net.ltgt.gradle.incap.IncrementalAnnotationProcessorType
-import pro.mezentsev.lympha.annotation.LymphaProfiler
+import pro.mezentsev.lympha.annotation.EventComposer
 import javax.annotation.processing.AbstractProcessor
 import javax.annotation.processing.Processor
 import javax.annotation.processing.RoundEnvironment
 import javax.annotation.processing.SupportedOptions
 import javax.lang.model.SourceVersion
-import javax.lang.model.element.*
+import javax.lang.model.element.ElementKind
+import javax.lang.model.element.ExecutableElement
+import javax.lang.model.element.TypeElement
+import javax.lang.model.element.VariableElement
 import javax.tools.Diagnostic
 
 // registering service
 @AutoService(Processor::class)
-@SupportedOptions(TimingProcessor.KOTLIN_GEN_DIRECTORY)
+@SupportedOptions(EventProcessor.KOTLIN_GEN_DIRECTORY)
 @IncrementalAnnotationProcessor(IncrementalAnnotationProcessorType.ISOLATING)
-class TimingProcessor : AbstractProcessor() {
+class EventProcessor : AbstractProcessor() {
 
     companion object {
         /** Kotlin generated code target directory option name. */
         const val KOTLIN_GEN_DIRECTORY = "kapt.kotlin.generated"
     }
 
-    private val annotation = LymphaProfiler::class.java
+    private val annotation = EventComposer::class.java
 
     /**
      * Kotlin generated code target directory.
@@ -37,7 +40,7 @@ class TimingProcessor : AbstractProcessor() {
             ?: throw IllegalStateException("Unable to get target directory")
 
     /**
-     * Provides set of annotations [TimingProcessor] can make use of.
+     * Provides set of annotations [EventProcessor] can make use of.
      **/
     override fun getSupportedAnnotationTypes(): Set<String> {
         return setOf(annotation.canonicalName)

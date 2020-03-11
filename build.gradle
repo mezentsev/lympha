@@ -10,6 +10,7 @@ buildscript {
         kotlinPoetVersion = '1.4.0'
         autoServiceVersion = '1.0-rc6'
 
+        viewpager2Version = '1.0.0'
         constraintLayoutVersion = '1.1.3'
     }
 

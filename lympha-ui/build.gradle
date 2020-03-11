@@ -1,7 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'com.archinamon.aspectj'
 
 android {
     compileSdkVersion 29
@@ -35,22 +34,10 @@ android {
     }
 }
 
-aspectj {
-    includeAspectsFromJar 'lympha-profiler-aj'
-    debugInfo = true
-    weaveInfo = true
-}
-
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
     implementation "androidx.annotation:annotation:$annotationsVersion"
+    implementation "androidx.viewpager2:viewpager2:$viewpager2Version"
 
-    api project(':lympha-ui')
-
-    debugApi project(':lympha-profiler-aj')
-    debugApi project(':lympha-profiler-annotation')
-
-    releaseApi project(':lympha-profiler-noop')
-
-    testImplementation "junit:junit:$junitVersion"
+    api project(':lympha-core')
 }

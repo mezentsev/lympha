@@ -1,4 +1,6 @@
 include ':lympha-core'
+include ':lympha-ui'
+include ':lympha-annotation'
 include ':lympha-processor'
 include ':lympha-profiler-annotation'
 include ':lympha-profiler-aj'
