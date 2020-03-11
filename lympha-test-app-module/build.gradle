@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 apply plugin: 'com.archinamon.aspectj'
 
 android {
@@ -23,6 +24,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 aspectj {
@@ -32,10 +42,13 @@ aspectj {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
-    implementation "androidx.appcompat:appcompat:$appcompatVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+    implementation "androidx.annotation:annotation:$annotationsVersion"
 
-    debugApi project(':lympha-profiler-aj')
+    debugApi project(':lympha-core')
+    debugApi project(':lympha-profiler-annotation')
+    kapt project(':lympha-processor')
+
     releaseApi project(':lympha-profiler-noop')
 
     testImplementation "junit:junit:$junitVersion"

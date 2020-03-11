@@ -1,34 +1,17 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-
-android {
-    compileSdkVersion 29
-
-    defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 29
-
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
-    buildTypes {
-        debug {
-            debuggable true
-            minifyEnabled false
-        }
-        release {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-}
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-kapt'
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+    implementation "com.google.auto.service:auto-service:$autoServiceVersion"
+    kapt "com.google.auto.service:auto-service:$autoServiceVersion"
 
+    compileOnly "net.ltgt.gradle.incap:incap:$incapVersion"
+    kapt "net.ltgt.gradle.incap:incap-processor:$incapVersion"
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+    implementation "com.squareup:kotlinpoet:$kotlinPoetVersion"
     testImplementation "junit:junit:$junitVersion"
 
-    api project(":lympha-core")
-    api project(":lympha-profiler-annotation")
+    implementation project(":lympha-profiler-annotation")
 }

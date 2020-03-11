@@ -6,6 +6,9 @@ buildscript {
         annotationsVersion = '1.1.0'
         junitVersion = '4.12'
         aspectjVersion = '4.0.1'
+        incapVersion = '0.2'
+        kotlinPoetVersion = '1.4.0'
+        autoServiceVersion = '1.0-rc6'
 
         constraintLayoutVersion = '1.1.3'
     }
